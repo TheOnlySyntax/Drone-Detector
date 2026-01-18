@@ -37,18 +37,50 @@ const int wifi24Count = 13;
 const int bleChannels[] = {37,38,39};
 const int bleCount = 3;
 
-const char* droneOUIs[] = {
-  "94:B9:7E",
-  "60:60:1F",
-  "34:AB:95",
-  "AC:E0:10",
-  "90:03:B7",
-  "A0:14:3D",
-  "48:7B:39",
-  "7C:76:35",
+const char* DRONE_OUIS[] = {
+  // DJI
+  "04:A8:5A", "0C:9A:E6", "34:D2:62", "48:1C:B9", "4C:43:F6",
+  "58:B8:58", "60:60:1F", "88:29:85", "8C:58:23", "E4:7A:2C",
+  "94:B9:7E", "A0:14:3D", "AC:E0:10", "B4:CD:27", "C0:EE:FB",
+  
+  // Parrot
+  "00:12:1C", "90:03:B7", "A0:14:3D",
+  
+  // Autel Robotics
+  "34:AB:95", "BC:15:A6",
+  
+  // Skydio
+  "48:7B:39", "98:7B:F3",
+  
+  // Yuneec
+  "90:03:B7", "44:65:0D",
+  
+  // Walkera
   "D4:3A:65",
-  "00:12:1C",
-  "00:26:7E"
+  
+  // Holybro / PX4 / Pixhawk
+  "A0:14:3D", "2C:F7:F1",
+  
+  // BetaFPV
+  "7C:76:35",
+  
+  // FrSky
+  "00:26:7E", "DC:54:75",
+  
+  // TBS (Team BlackSheep)
+  "C4:9D:ED",
+  
+  // FatShark / FPV gear
+  "28:39:26",
+  
+  // ImmersionRC
+  "00:0D:93",
+  
+  // OpenHD / DIY FPV
+  "B8:27:EB", "DC:A6:32",
+  
+  // ESP-based DIY drones
+  "24:6F:28", "30:AE:A4", "7C:9E:BD"
 };
 
 struct FrameInfo {
