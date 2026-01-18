@@ -61,8 +61,110 @@ Advanced RF spectrum analyzer for drone detection using ESP32-S3, nRF24L01+, and
 
 ⚠️ **Important**: Use a stable 3.3V power supply for nRF24L01+ to avoid brownout issues.
 
-## 📦 Software Installation
+# ESP32-S3 Drone Detector
 
-### **Arduino IDE Setup:**
+## INSTALLATION GUIDE
 
-1. **Install ESP32 Board Support:**
+### 1. Install ESP32 Board Support
+
+**Arduino IDE:**
+1. Open Arduino IDE
+2. Go to File → Preferences
+3. Add this URL to Additional Boards Manager URLs:
+https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+4. Go to Tools → Board → Boards Manager
+5. Search for "esp32"
+6. Install "ESP32 by Espressif Systems"
+7. Select: ESP32S3 Dev Module
+
+**PlatformIO:**
+Open VS Code → Extensions → Search "PlatformIO" → Install
+
+Create new project:
+pio project init --board esp32-s3-devkitc-1
+
+### 2. Install Required Libraries
+
+**Arduino IDE:**
+Tools → Manage Libraries → Search and install:
+- RF24 by TMRh20
+- Adafruit GFX Library
+- Adafruit SSD1306
+
+**PlatformIO:**
+Add to platformio.ini:
+lib_deps = 
+    nRF24/RF24
+    adafruit/Adafruit GFX Library
+    adafruit/Adafruit SSD1306
+
+### 3. Board Configuration
+
+**Arduino IDE Settings:**
+Board: ESP32S3 Dev Module
+Flash Mode: QIO
+Flash Size: 16MB
+Partition Scheme: Default 16MB
+CPU Frequency: 240MHz
+Upload Speed: 921600
+
+### 4. Pin Configuration
+
+**Default ESP32-S3 Pins:**
+nRF24 CE → GPIO 9
+nRF24 CSN → GPIO 10
+nRF24 MOSI → GPIO 35
+nRF24 MISO → GPIO 37
+nRF24 SCK → GPIO 36
+OLED SDA → GPIO 17
+OLED SCL → GPIO 18
+Buzzer → GPIO 8
+
+### 5. Upload Code
+
+1. Connect ESP32-S3 via USB
+2. Select correct COM port
+3. Click Upload in Arduino IDE
+4. Open Serial Monitor (115200 baud)
+
+## TROUBLESHOOTING
+
+**Brownout/Restart:**
+- Use external 3.3V regulator for nRF24
+- Add 100µF capacitor on 3.3V line
+- Disable brownout detector in code
+
+**No RF Detection:**
+- Check SPI connections
+- Verify 3.3V power to nRF24
+- Ensure antenna is connected
+
+**OLED Not Working:**
+- Check I2C connections
+- Try address 0x3D instead of 0x3C
+- Verify OLED power (3.3V)
+
+## CODE STRUCTURE
+
+Main Files:
+- drone_detector.ino (main sketch)
+- Configurable settings at top
+- Detection logic in loop()
+
+Key Functions:
+- performRF24Scan() - Scans 2.4GHz spectrum
+- performWiFiScan() - Detects WiFi networks
+- analyzeRFPattern() - Signal analysis
+- drawDashboard() - OLED display update
+
+## SUPPORT
+
+For issues:
+1. Check Serial Monitor output
+2. Verify all connections
+3. Ensure proper power supply
+4. Test with DEBUG mode enabled
+
+Version: 4.1
+Last Updated: January 2024
+Compatible: ESP32-S3
