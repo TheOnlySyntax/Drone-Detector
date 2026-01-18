@@ -65,5 +65,5 @@ Advanced RF spectrum analyzer for drone detection using ESP32-S3, nRF24L01+, and
 4. Test with DEBUG mode enabled
 
 Version: 4.1
-Last Updated: January 2024
+Last Updated: January 2026
 Compatible: ESP32-S3
