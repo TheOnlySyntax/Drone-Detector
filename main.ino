@@ -37,7 +37,7 @@ const int wifi24Count = 13;
 const int bleChannels[] = {37,38,39};
 const int bleCount = 3;
 
-const char* DRONE_OUIS[] = {
+const char* droneOUIs[] = {
   // DJI
   "04:A8:5A", "0C:9A:E6", "34:D2:62", "48:1C:B9", "4C:43:F6",
   "58:B8:58", "60:60:1F", "88:29:85", "8C:58:23", "E4:7A:2C",
